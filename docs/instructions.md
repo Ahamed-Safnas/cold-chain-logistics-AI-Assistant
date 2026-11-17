@@ -141,7 +141,7 @@ I'm a new dispatcher on the night shift. Can you quickly explain the difference 
 Go to VS-code > CTRL + N > 'click on plain-text' and use 'sql'
 
 Select the su user and write below :
-
+```
 CREATE TABLE FDE_VIEWS.AgentAuditLog (
     LogID INT IDENTITY(1,1) PRIMARY KEY,
     Timestamp DATETIME DEFAULT GETDATE(),
@@ -150,8 +150,9 @@ CREATE TABLE FDE_VIEWS.AgentAuditLog (
     ToolName VARCHAR(100),
     Content NVARCHAR(MAX) -- NVARCHAR to safely handle JSON strings and large LLM outputs
 );
-
+```
 -- Grant the agent user permission to write only to this specific table
+
 ```
 GRANT INSERT ON FDE_VIEWS.AgentAuditLog TO USR_FDE_RO;
 ```
